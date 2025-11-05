@@ -7,7 +7,7 @@ public class Main {
         try {
 
             InputStream is = new FileInputStream("cadastro.csv");
-            InputStreamReader isr;
+            InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br;
 
         } catch (FileNotFoundException e){
