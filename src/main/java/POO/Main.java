@@ -27,7 +27,7 @@ public class Main {
                 System.out.println(linha);
                 texto = linha.split(",");
 
-                nome = texto[0].trim();
+                nome = texto[1].trim();
                 idade = Integer.parseInt(texto[1].trim());
                 estadocivil = texto[2].trim();
                 profissao = texto[3].trim();
