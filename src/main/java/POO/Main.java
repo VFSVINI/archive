@@ -12,7 +12,7 @@ public class Main {
             BufferedReader br = new BufferedReader(isr);
 
             String linha = br.readLine();
-            linha = br.readLine(); // COMEÇA O PROGRAMA A PARTIR DA SEGUNDA LINHA.
+            linha = br.readLine(); // ESSE MÉTODO COMEÇA O PROGRAMA A PARTIR DA SEGUNDA LINHA.
 
             String nome;
             int idade;
