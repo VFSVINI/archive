@@ -1,18 +1,26 @@
 package POO;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args){
         String[] texto = new String[3];
+        ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>(); // COLEÇÕES SET, LIST, MAP
+
         try {
 
             InputStream is = new FileInputStream("cadastro.csv");
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
 
+            OutputStream os;
+            OutputStreamWriter osw;
+            BufferedWriter bw;
+
+
             String linha = br.readLine();
-            linha = br.readLine(); // ESSE MÉTODO COMEÇA O PROGRAMA A PARTIR DA SEGUNDA LINHA.
+            linha = br.readLine();
 
             String nome;
             int idade;
@@ -24,7 +32,6 @@ public class Main {
 
             while (linha != null){
 
-                System.out.println(linha);
                 texto = linha.split(",");
 
                 nome = texto[1].trim();
@@ -34,7 +41,7 @@ public class Main {
                 salario = Double.valueOf(texto[4].trim());
 
                 p = new Pessoa(nome, idade, estadocivil, profissao, salario);
-                p.apresentar();
+                pessoas.add(p);
 
 
                 System.out.println(texto[0]+texto[1]+texto[2]+texto[3]+texto[4]);
@@ -44,6 +51,14 @@ public class Main {
             is.close();
             isr.close();
             br.close();
+
+            int quantidade = pessoas.size();
+
+            for(int i=0; i<quantidade; i++){
+
+                pessoas.get(i).apresentar();
+                System.out.println("-----------------");
+            }
 
         } catch (FileNotFoundException e){
             System.out.println(("O ARQUIVO NÃO FOI ENCONTADO"));
